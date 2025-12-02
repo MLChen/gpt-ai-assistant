@@ -1,5 +1,28 @@
 # Changelog
 
+## 5.1.0 (2025-12-03)
+
+### New Features
+
+- Upgrade Node.js to version 22
+- Add `.nvmrc` for Node.js version management
+- Add `engines` field in `package.json`
+
+### Dependencies
+
+- Upgrade `axios` to 1.13.2
+- Upgrade `dotenv` to 16.6.1
+- Upgrade `express` to 4.22.1
+- Upgrade `form-data` to 4.0.5
+- Upgrade `gpt-3-encoder` to 1.1.4
+- Upgrade `@babel/core` to 7.26.10
+- Upgrade `@babel/preset-env` to 7.26.9
+- Upgrade `@jest/globals` to 29.7.0
+- Upgrade `babel-jest` to 29.7.0
+- Upgrade `eslint` to 8.57.0
+- Upgrade `jest` to 29.7.0
+- Upgrade `nodemon` to 3.1.9
+
 ## 4.9.1 (2024-07-10)
 
 ### Bug Fixes

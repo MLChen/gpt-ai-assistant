@@ -30,9 +30,9 @@ test('COMMAND_SYS_VERSION', async () => {
   const isLatest = current === latest;
   expect(getPrompt(MOCK_USER_01).messages.length).toEqual(3);
   const replies = results.map(({ messages }) => messages.map(({ text }) => text));
-  expect(replies).toEqual(
-    [
-      [t('__COMMAND_SYS_VERSION_REPLY')(current, isLatest)],
-    ],
-  );
+  const expectedReplies = [t('__COMMAND_SYS_VERSION_REPLY')(current, isLatest)];
+  if (!isLatest) {
+    expectedReplies.push(t('__MESSAGE_NEW_VERSION_AVAILABLE')(latest));
+  }
+  expect(replies).toEqual([expectedReplies]);
 }, TIMEOUT);
