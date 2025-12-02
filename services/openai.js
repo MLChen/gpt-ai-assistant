@@ -14,10 +14,23 @@ export const IMAGE_SIZE_256 = '256x256';
 export const IMAGE_SIZE_512 = '512x512';
 export const IMAGE_SIZE_1024 = '1024x1024';
 
+// Legacy models (deprecated but still supported)
 export const MODEL_GPT_3_5_TURBO = 'gpt-3.5-turbo';
 export const MODEL_GPT_4_OMNI = 'gpt-4o';
 export const MODEL_WHISPER_1 = 'whisper-1';
 export const MODEL_DALL_E_3 = 'dall-e-3';
+
+// GPT-4.1 family (2025)
+export const MODEL_GPT_4_1 = 'gpt-4.1';
+export const MODEL_GPT_4_1_MINI = 'gpt-4.1-mini';
+export const MODEL_GPT_4_1_NANO = 'gpt-4.1-nano';
+
+// Image generation (2025)
+export const MODEL_GPT_IMAGE_1 = 'gpt-image-1';
+
+// Audio transcription (2025)
+export const MODEL_GPT_4O_TRANSCRIBE = 'gpt-4o-transcribe';
+export const MODEL_GPT_4O_MINI_TRANSCRIBE = 'gpt-4o-mini-transcribe';
 
 const client = axios.create({
   baseURL: config.OPENAI_BASE_URL,
@@ -71,8 +84,8 @@ const createImage = ({
   quality = config.OPENAI_IMAGE_GENERATION_QUALITY,
   n = 1,
 }) => {
-  // set image size to 1024 when using the DALL-E 3 model and the requested size is 256 or 512.
-  if (model === MODEL_DALL_E_3 && [IMAGE_SIZE_256, IMAGE_SIZE_512].includes(size)) {
+  // Adjust size for models that don't support small sizes
+  if ([MODEL_DALL_E_3, MODEL_GPT_IMAGE_1].includes(model) && [IMAGE_SIZE_256, IMAGE_SIZE_512].includes(size)) {
     size = IMAGE_SIZE_1024;
   }
 
@@ -88,7 +101,7 @@ const createImage = ({
 const createAudioTranscriptions = ({
   buffer,
   file,
-  model = MODEL_WHISPER_1,
+  model = config.OPENAI_AUDIO_TRANSCRIPTION_MODEL,
 }) => {
   const formData = new FormData();
   formData.append('file', buffer, file);

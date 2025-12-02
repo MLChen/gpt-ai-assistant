@@ -10,7 +10,8 @@ GPT AI Assistant is an application that is implemented using the OpenAI API and 
 
 ## News
 
-- 2024-07-10: The `4.9` version now support `gpt-4o` OpenAI model. :fire:
+- 2025-12-03: The `5.1` version now support `gpt-4.1` family models and `gpt-image-1`. :fire:
+- 2024-07-10: The `4.9` version now support `gpt-4o` OpenAI model.
 - 2023-05-03: The `4.6` version now support `gpt-4` OpenAI model.
 - 2023-03-05: The `4.1` version now support the audio message of LINE and  `whisper-1` OpenAI model.
 - 2023-03-02: The `4.0` version now support `gpt-3.5-turbo` OpenAI model.

@@ -7,6 +7,18 @@
 - Upgrade Node.js to version 22
 - Add `.nvmrc` for Node.js version management
 - Add `engines` field in `package.json`
+- Support GPT-4.1 family models (`gpt-4.1`, `gpt-4.1-mini`, `gpt-4.1-nano`)
+- Support `gpt-image-1` image generation model
+- Support `gpt-4o-transcribe` and `gpt-4o-mini-transcribe` audio models
+- Add `OPENAI_AUDIO_TRANSCRIPTION_MODEL` environment variable
+
+### Model Updates
+
+- Change default completion model from `gpt-3.5-turbo` to `gpt-4.1-nano`
+- Change default vision model from `gpt-4o` to `gpt-4.1`
+- Change default image generation model from `dall-e-2` to `gpt-image-1`
+- Change default image size from `256x256` to `1024x1024`
+- Change default audio transcription model from `whisper-1` to `gpt-4o-mini-transcribe`
 
 ### Dependencies
 
